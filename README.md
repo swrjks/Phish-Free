@@ -1,97 +1,107 @@
-# 🛡️ PhishFree — Real-Time AI/ML-Based Phishing Detection
+# 🛡️ PhishFree — Real-Time Phishing Detection
 
-**PhishFree** is an advanced, real-time phishing detection and prevention ecosystem originally engineered to stop sophisticated web-based threats seamlessly.
+**PhishFree** is a real-time phishing detection ecosystem designed to protect users from malicious websites automatically.
 
-🎯 **Built for HackNocturne Hackathon!**  
-This project is our official submission for the HackNocturne hackathon, designed to tackle real-world cybersecurity threats with bleeding-edge AI and blockchain integrity.
-
----
-
-## 📖 What PhishFree Does
-
-PhishFree combines a sleek **Chrome Extension** with a powerful **Multi-Modal AI Backend** to protect users as they browse the deep expanses of the internet.
-
-When a user visits a webpage, PhishFree operates in the background to automatically analyze the site:
-1. **The Extension** scrapes HTML content, scripts, and captures a live screenshot of the webpage silently in the background.
-2. **The Backend** receives this data and unleashes three distinct AI models operating in an ensemble:
-   - **Text Model (RoBERTa)**: Analyzes the page's structural text, intent, and hidden forms.
-   - **Vision Model (CNN/ResNet)**: Visually compares the screenshot against known legitimate brands (like Google, PayPal, Microsoft) to detect brand impersonation.
-   - **Graph Model (GNN)**: Maps malicious network patterns, domain clusters, and link relationships.
-3. **Advanced Threat Scanners**: Checks WHOIS data, certificate authorities, domain age, and specific high-risk fingerprints (e.g., piracy, proxies).
-4. **Actionable Alerts**: If the site is dangerous, the extension instantly slides down a beautiful, minimalist warning bar directly inside the webpage, explicitly explaining the risk dynamically without confusing the user.
-5. **Decentralized Auditing**: Logs of all flagged malicious sites are anchored directly to the **Ethereum Web3 Blockchain** to ensure tamper-proof historical tracking.
-6. **Detailed Dashboard**: Every event is tracked on a beautiful interactive Admin Dashboard complete with charts, log deletion functionalities, and CSV exports.
+🎯 **HackNocturne Hackathon Project**
+Built to tackle real-world web security threats using AI-based analysis and heuristics.
+**Deployed Version**: [https://phishfree.vercel.app/](https://phishfree.vercel.app/)
 
 ---
 
-## 🛠️ Tech Stack & Architecture Versions
+## 📖 Problem
 
-We strictly utilized modern, robust frameworks and strict package versions to ensure stability.
+Phishing attacks remain one of the most common and effective methods for stealing sensitive information, including passwords, credit card numbers, and personal data.
 
-### 🌐 Frontend (Extension & Dashboard)
-- **Extension Engine**: Chrome Manifest V3
-- **Frontend Logic**: Vanilla JavaScript (ES6+), HTML5, Vanilla CSS3 (Custom Glassmorphism minimal UI)
-- **Data Visualization**: Chart.js
+* Modern phishing sites often **mimic popular brands** perfectly, making it difficult for users to identify threats.
+* Current browser protections are often **reactive**, **slow**, or **provide vague alerts**, leaving users exposed.
+* Users frequently **ignore warnings** due to confusing interfaces or false positives.
 
-### ⚙️ Backend (Python 3)
-- **Framework**: `Flask==3.0.3` with `Flask-Cors==4.0.1`
-- **Server**: `gunicorn==22.0.0`
-- **Data Processing**: `numpy==1.26.4`, `pandas==2.2.2`
+There is a need for a **proactive, real-time solution** that is seamless, intuitive, and accurate for every user.
 
-### 🧠 Artificial Intelligence / ML
-- **Deep Learning Frame**: `torch>=2.2.2`, `torchvision>=0.17.2`
-- **NLP / Transformers**: `transformers==4.41.2`, `sentence-transformers==3.0.1`
-- **Graph Neural Nets**: `torch-geometric>=2.5.3`
-- **Machine Learning Utilities**: `scikit-learn==1.5.2`, `lightgbm==4.3.0`
-- **AI Acceleration**: `accelerate==0.30.1`
+---
 
-### 🔗 Blockchain / Web3
-- **Ethereum Integration**: `web3==6.18.0`
-- **Account & Hex Encoding**: `eth-account==0.9.0`, `hexbytes==0.3.1`
+## 💡 Solution
 
-### 🌍 Domain Intelligence & Networking
-- **Requests & Security**: `requests==2.32.3`, `urllib3>=2.2.1`, `certifi>=2024.2.2`
-- **WHOIS & DNS**: `python-whois==0.8.0`, `dnspython==2.6.1`, `idna>=3.7`
-- **URL parsing**: `tldextract==5.1.2`
+PhishFree provides a **full-stack phishing detection ecosystem** that automatically protects users:
+
+1. **Browser Extension**: Captures webpage content, scripts, and screenshots silently in the background.
+2. **AI-Powered Backend**:
+
+   * **Text Analysis**: Detects hidden forms, unusual links, and phishing patterns.
+   * **Visual Analysis**: Compares page screenshots with legitimate brand visuals to detect impersonation.
+   * **Domain & Network Analysis**: Checks WHOIS data, certificate validity, domain age, and suspicious network patterns.
+3. **Real-Time Alerts**: Displays clear, actionable warnings in the browser when a site is risky.
+4. **Logging & Transparency**: Keeps track of flagged sites for review and auditing.
+
+This system ensures that users are **never tricked by phishing attacks** while maintaining a seamless browsing experience.
+
+---
+
+## 🛠️ System Architecture
+
+![System Architecture](images/system_arch.jpg)
+
+**Flow Overview**:
+
+* **User Browser** → PhishFree Extension → **Backend AI + Heuristics** → Returns risk score → Extension shows alerts.
+* Real-time processing ensures minimal delay and maximum safety.
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 🧩 Step 1 — Clone the Repository
-```bash
-git clone https://github.com/Sahil-Scripts/Phish-Free.git
-cd Phish-Free
-```
+### 1️⃣ Download the Extension & Backend
 
-### 🧱 Step 2 — Create Virtual Environment
-```bash
-python -m venv venv
-# Activate
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # Linux / Mac
-```
+* Backend ZIP release: [Download here](https://github.com/swrjks/Phish-Free-extension-backend/releases/tag/v1.0.0)
+* Unzip it anywhere on your computer.
 
-### 📦 Step 3 — Install Dependencies
+### 2️⃣ Install Backend Dependencies
+
 ```bash
 cd backend
+python -m venv venv
+# Activate virtual environment
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # Linux / Mac
 pip install -r requirements.txt
 ```
 
+### 3️⃣ Run the Backend
+
+```bash
+cd backend
+python app.py
+```
+
+### 4️⃣ Load the Extension
+
+1. Open Chrome and go to `chrome://extensions/`.
+2. Enable **Developer mode**.
+3. Click **"Load unpacked"** and select the `extension/` folder.
+
+*Now your browser is protected with PhishFree!* 🛡️
+
 ---
 
-## 🚀 Running the Project
+## 🎥 Demo Videos
 
-1. **Start the AI Backend**:
-   ```bash
-   cd backend
-   python app.py
-   ```
-2. **Access the Admin Dashboard**: 
-   Open your browser and navigate to: `http://localhost:5000/static/dashboard.html`
-3. **Load the Smart Browser Extension**:
-   - Go to `chrome://extensions/` in Chrome/Brave/Edge.
-   - Enable **Developer mode** in the top right.
-   - Click **"Load unpacked"** and select the `extension/` folder located inside the cloned repository.
+| [Video 1](https://youtu.be/sZh2fSZO5uM)                                                         | [Video 2](https://youtu.be/oj7oEATNhpg)                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| <a href="https://youtu.be/sZh2fSZO5uM"><img src="images/video1_thumbnail.jpg" width="300"/></a> | <a href="https://youtu.be/oj7oEATNhpg"><img src="images/video2_thumbnail.jpg" width="300"/></a> |
 
-*Happy safe browsing!* 🛡️
+---
+
+## 👥 Team Members
+
+1. **Member 1** – Role / Contribution
+2. **Member 2** – Role / Contribution
+3. **Member 3** – Role / Contribution
+4. **Member 4** – Role / Contribution
+
+---
+
+This version is now **user-friendly**, visually structured, and includes placeholders for images, videos, team members, and the deployed site link.
+
+If you want, I can **also create the Markdown code for the video thumbnails so it displays properly on GitHub** with clickable images.
+
+Do you want me to do that next?
