@@ -39,7 +39,7 @@ This system ensures that users are **never tricked by phishing attacks** while m
 
 ## 🛠️ System Architecture
 
-![System Architecture](images/system_arch.jpg)
+![System Architecture](images/system_arch.jepg)
 
 **Flow Overview**:
 
