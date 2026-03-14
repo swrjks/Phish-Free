@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0.5rem;
+    --danger: 0 84% 60%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
+    --danger: 0 84% 60%;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .text-gradient {
+    background: linear-gradient(to right, hsl(0 0% 0%), hsl(0 0% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dark .text-gradient {
+    background: linear-gradient(to right, hsl(0 0% 100%), hsl(0 0% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Subtle grid background like Vercel */
+.grid-bg {
+  background-image: 
+    linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Gradient line like Vercel hero */
+.hero-gradient-line {
+  background: linear-gradient(90deg, transparent, #ff4040, #ff8000, #ffbf00, #00cc88, #0088ff, #8844ff, transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* Radial glow */
+.hero-glow {
+  background: radial-gradient(ellipse 600px 200px at 50% 0%, hsl(var(--border)) 0%, transparent 70%);
+}
+
+.dark .hero-glow {
+  background: radial-gradient(ellipse 600px 200px at 50% 0%, hsl(0 0% 12%) 0%, transparent 70%);
+}
+
+/* Website scanning overlay (section-by-section) */
+.scan-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 229, 255, 0.95),
+    rgba(140, 91, 255, 0.95),
+    rgba(0, 170, 255, 0.95),
+    transparent
+  );
+  filter: blur(0.2px) drop-shadow(0 0 10px rgba(0, 229, 255, 0.45)) drop-shadow(0 0 18px rgba(140, 91, 255, 0.35));
+}
+
+.scan-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 140px at 50% 0%, rgba(0, 229, 255, 0.10), transparent 60%),
+    linear-gradient(to bottom, rgba(140, 91, 255, 0.08), transparent 35%);
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+}
+
+@keyframes scanPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    outline-color: rgba(0, 229, 255, 0);
+  }
+  35% {
+    outline-color: rgba(0, 229, 255, 0.65);
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.35),
+      0 0 18px rgba(140, 91, 255, 0.22);
+  }
+  100% {
+    outline-color: rgba(0, 229, 255, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.scan-highlight {
+  outline: 1px solid rgba(0, 229, 255, 0);
+  outline-offset: 2px;
+  animation: scanPulse 820ms ease-out;
+}
+
+/* Top nav – rotating border glow */
+.nav-glow-wrapper {
+  isolation: isolate;
+}
+
+.nav-glow-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  height: 220%;
+  transform-origin: center;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  filter:
+    drop-shadow(0 0 12px rgba(0, 229, 255, 0.45))
+    drop-shadow(0 0 20px rgba(140, 91, 255, 0.35));
+}
+
+.nav-glow-orbit--cw {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 332deg,
+    rgba(0, 229, 255, 1) 342deg,
+    rgba(140, 91, 255, 1) 352deg,
+    rgba(0, 170, 255, 1) 360deg
+  );
+  animation: navOrbit 18s linear infinite;
+}
+
+.nav-glow-orbit--ccw {
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    transparent 332deg,
+    rgba(0, 229, 255, 1) 342deg,
+    rgba(140, 91, 255, 1) 352deg,
+    rgba(0, 170, 255, 1) 360deg
+  );
+  animation: navOrbit 18s linear infinite reverse;
+}
+
+@keyframes navOrbit {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.8);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+.dark * {
+  scrollbar-color: hsl(var(--muted-foreground) / 0.5) transparent;
+}
