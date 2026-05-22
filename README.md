@@ -89,19 +89,4 @@ python app.py
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | <a href="https://youtu.be/sZh2fSZO5uM"><img src="images/video1_thumbnail.jpg" width="300"/></a> | <a href="https://youtu.be/oj7oEATNhpg"><img src="images/video2_thumbnail.jpg" width="300"/></a> |
 
----
 
-## 👥 Team Members
-
-1. **Member 1** – Role / Contribution
-2. **Member 2** – Role / Contribution
-3. **Member 3** – Role / Contribution
-4. **Member 4** – Role / Contribution
-
----
-
-This version is now **user-friendly**, visually structured, and includes placeholders for images, videos, team members, and the deployed site link.
-
-If you want, I can **also create the Markdown code for the video thumbnails so it displays properly on GitHub** with clickable images.
-
-Do you want me to do that next?
